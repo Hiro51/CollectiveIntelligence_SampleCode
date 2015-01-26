@@ -48,7 +48,6 @@ def hcluster(rows, distance=pearson):
 
   # Clusters are initially just rows
   clust=[bicluster(rows[i], id=i) for i in range(len(rows))]
-  print(clust)
 
   while len(clust)>1:
     lowestpair=(0,1)
@@ -153,3 +152,10 @@ def drawnode(draw, clust, x, y, scaling, labels):
   else:
     # If this is an endpoint draw the item label
     draw.text((x+5, y-7), labels[clust.id], (0, 0, 0))
+
+def rotatematrix(data):
+  newdata=[]
+  for i in range(len(data[0])):
+    newrow=[data[j][i] for j in range(len(data))]
+    newdata.append(newrow)
+  return newdata
